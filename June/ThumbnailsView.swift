@@ -8,10 +8,30 @@
 
 import SwiftUI
 
+struct URLImage : View {
+    let url : String
+    @ObjectBinding var imageLoader = HTTP<UIImage>()
+    
+    init(url: String) {
+        self.url = url
+    }
+    
+    var body: some View {
+        Image(uiImage: self.imageLoader.expectValue).resizable()
+            .onAppear {
+                self.imageLoader.get(with: self.url)
+        }
+            .onDisappear {
+                self.imageLoader.cancel()
+        }
+    }
+}
+
 struct ThumbnailsView : View {
     
     let title: String
     let urls: [String]
+    @ObjectBinding var imageLoader = HTTP<UIImage>()
     
     var body: some View {
         ScrollView {
@@ -28,7 +48,7 @@ struct ThumbnailsView : View {
                 ScrollView(.horizontal) {
                     HStack {
                         ForEach(urls, id: \.self) { item in
-                            NetworkImage(item)
+                            URLImage(url: item)
                                 .frame(width: 120, height: 120, alignment: .center)
                                 .background(Color.white)
                         }

@@ -21,7 +21,7 @@ struct HomeView : View {
      }
     var body: some View {
         NavigationView {
-            ThumbnailsView(title: "Picsum", urls: (220..<230).map{ "https://picsum.photos/id/\($0)/200/200" })
+            ThumbnailsView(title: "Picsum", urls: (200..<220).map{ "https://picsum.photos/id/\($0)/200/200" })
             .navigationBarTitle("Channels")
             .navigationBarItems(trailing: profileButton)
             .sheet(isPresented: $showingProfile) {

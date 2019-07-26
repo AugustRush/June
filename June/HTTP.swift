@@ -13,9 +13,7 @@ class HTTP<T>: BindableObject {
     
     var expectValue: T {
         didSet {
-            DispatchQueue.main.async {
-                self.willChange.send()
-            }
+            self.willChange.send()
         }
     }
     
@@ -30,7 +28,7 @@ class HTTP<T>: BindableObject {
         self.transformer = transformer
     }
     
-    func get(with path: String) {
+    func get(with path: String, session: URLSession = URLSession.shared, queue: DispatchQueue = .main) {
         let url = URL(string: path)
         guard let real = url else { return }
         var request = URLRequest(url: real)
@@ -38,12 +36,12 @@ class HTTP<T>: BindableObject {
         get(with: request)
     }
     
-    func get(with request: URLRequest) {
-        let publisher = URLSession.shared.dataTaskPublisher(for: request).map {  self.transformer($0.data) }.drop(while: { $0 == nil })
+    func get(with request: URLRequest, session: URLSession = URLSession.shared, queue: DispatchQueue = .main) {
+        let publisher = URLSession.shared.dataTaskPublisher(for: request).map {  self.transformer($0.data) }.drop(while: { $0 == nil }).receive(on: queue)
         cancelable = publisher.sink(receiveCompletion: { (error) in
             print(error)
         }) {
-                self.expectValue = $0!
+            self.expectValue = $0!
         }
     }
     
