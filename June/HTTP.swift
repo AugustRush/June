@@ -10,7 +10,15 @@ import SwiftUI
 import Combine
 
 class HTTP<T>: BindableObject {
-    var expectValue: T
+    
+    var expectValue: T {
+        didSet {
+            DispatchQueue.main.async {
+                self.willChange.send()
+            }
+        }
+    }
+    
     
     typealias Transformer = (Data) -> T?
     internal var willChange = PassthroughSubject<Void,Never>()
@@ -31,19 +39,12 @@ class HTTP<T>: BindableObject {
     }
     
     func get(with request: URLRequest) {
-        let publisher = URLSession.shared.dataTaskPublisher(for: request)
-        let subscriber = publisher.sink(receiveCompletion: { (error) in
+        let publisher = URLSession.shared.dataTaskPublisher(for: request).map {  self.transformer($0.data) }.drop(while: { $0 == nil })
+        cancelable = publisher.sink(receiveCompletion: { (error) in
             print(error)
-        }) { (data,response) in
-            if let result = self.transformer(data) {
-                self.expectValue = result
-                DispatchQueue.main.async {
-                    self.willChange.send()
-                }
-            }
+        }) {
+                self.expectValue = $0!
         }
-
-        cancelable = subscriber
     }
     
     func cancel() {
@@ -54,5 +55,13 @@ class HTTP<T>: BindableObject {
 extension HTTP where T == UIImage {
     convenience init(default image: UIImage = UIImage()) {
         self.init(default: image, transformer: { UIImage(data: $0) })
+    }
+}
+
+extension HTTP where T : Decodable {
+    convenience init(default value: T) {
+        self.init(default: value, transformer: {
+            try? JSONDecoder().decode(T.self, from: $0)
+        })
     }
 }

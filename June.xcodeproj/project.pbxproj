@@ -16,7 +16,7 @@
 		80F915E322E6B26A002EABBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80F915E222E6B26A002EABBB /* Assets.xcassets */; };
 		80F915E622E6B26A002EABBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80F915E522E6B26A002EABBB /* Preview Assets.xcassets */; };
 		80F915E922E6B26A002EABBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80F915E722E6B26A002EABBB /* LaunchScreen.storyboard */; };
-		80F915F122E6B5F1002EABBB /* PhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F915F022E6B5F1002EABBB /* PhotosView.swift */; };
+		80F915F122E6B5F1002EABBB /* ThumbnailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F915F022E6B5F1002EABBB /* ThumbnailsView.swift */; };
 		80F915F522E6BB38002EABBB /* PicsumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F915F422E6BB37002EABBB /* PicsumView.swift */; };
 		80F915F722E6BB50002EABBB /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F915F622E6BB50002EABBB /* Global.swift */; };
 		80F9160822E6ECAD002EABBB /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9160722E6ECAD002EABBB /* NetworkImage.swift */; };
@@ -35,7 +35,7 @@
 		80F915E522E6B26A002EABBB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		80F915E822E6B26A002EABBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80F915EA22E6B26A002EABBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80F915F022E6B5F1002EABBB /* PhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotosView.swift; path = ../../../../../System/Volumes/Data/Users/pingweiliu/Work/June/June/PhotosView.swift; sourceTree = "<group>"; };
+		80F915F022E6B5F1002EABBB /* ThumbnailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThumbnailsView.swift; path = ../../../../../System/Volumes/Data/Users/pingweiliu/Work/June/June/ThumbnailsView.swift; sourceTree = "<group>"; };
 		80F915F422E6BB37002EABBB /* PicsumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicsumView.swift; sourceTree = "<group>"; };
 		80F915F622E6BB50002EABBB /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		80F9160722E6ECAD002EABBB /* NetworkImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 				8092F98422EAB38D00158E72 /* HTTP.swift */,
 				80F915E022E6B268002EABBB /* HomeView.swift */,
 				8092F98222EAB19100158E72 /* PhotoDetailView.swift */,
-				80F915F022E6B5F1002EABBB /* PhotosView.swift */,
+				80F915F022E6B5F1002EABBB /* ThumbnailsView.swift */,
 				80F915F422E6BB37002EABBB /* PicsumView.swift */,
 				80F9160722E6ECAD002EABBB /* NetworkImage.swift */,
 				80F915E222E6B26A002EABBB /* Assets.xcassets */,
@@ -239,7 +239,7 @@
 				80F915DF22E6B268002EABBB /* SceneDelegate.swift in Sources */,
 				80F9160822E6ECAD002EABBB /* NetworkImage.swift in Sources */,
 				80F915E122E6B268002EABBB /* HomeView.swift in Sources */,
-				80F915F122E6B5F1002EABBB /* PhotosView.swift in Sources */,
+				80F915F122E6B5F1002EABBB /* ThumbnailsView.swift in Sources */,
 				80F915F722E6BB50002EABBB /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
