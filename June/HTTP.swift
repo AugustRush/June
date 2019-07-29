@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import Cache
 
 class HTTP<T>: BindableObject {
     
@@ -19,7 +20,7 @@ class HTTP<T>: BindableObject {
     
     
     typealias Transformer = (Data) -> T?
-    internal var willChange = PassthroughSubject<Void,Never>()
+    internal let willChange = PassthroughSubject<Void,Never>()
     private var transformer: Transformer
     private var cancelable: Cancellable?
     
@@ -48,18 +49,47 @@ class HTTP<T>: BindableObject {
     func cancel() {
         cancelable?.cancel()
     }
+    
+    internal func finished(with path: String, value: T) {
+        //do nothing
+    }
 }
 
-extension HTTP where T == UIImage {
+class WebImage: HTTP<UIImage> {
+    
+     lazy var storage: Storage<UIImage> = {
+           let diskConfig = DiskConfig(name: "Floppy", expiry: .seconds(60 * 60 * 24 * 3))
+           let memoryConfig = MemoryConfig(expiry: .never, countLimit: 10, totalCostLimit: 10)
+           return try! Storage(diskConfig: diskConfig, memoryConfig: memoryConfig, transformer: TransformerFactory.forImage())
+    }()
+    
+    
     convenience init(default image: UIImage = UIImage()) {
         self.init(default: image, transformer: { UIImage(data: $0) })
     }
-}
-
-extension HTTP where T : Decodable {
-    convenience init(default value: T) {
-        self.init(default: value, transformer: {
-            try? JSONDecoder().decode(T.self, from: $0)
-        })
+    
+    override func get(with path: String, session: URLSession = URLSession.shared, queue: DispatchQueue = .main) {
+        storage.async.object(forKey: path) { (result) in
+            switch result {
+            case .value(let image):
+                queue.async {
+                  self.expectValue = image
+                }
+            case .error(_):
+                super.get(with: path, session: session, queue: queue)
+            }
+        }
+    }
+    
+    override func finished(with path: String, value: UIImage) {
+        try? storage.setObject(value, forKey: path)
     }
 }
+
+//extension HTTP where T : Decodable {
+//    convenience init(default value: T) {
+//        self.init(default: value, transformer: {
+//            try? JSONDecoder().decode(T.self, from: $0)
+//        })
+//    }
+//}

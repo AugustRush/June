@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PhotoDetailView: View {
-    @ObjectBinding var webImage = HTTP<UIImage>(default: UIImage(systemName: "photo") ?? UIImage())
+    @ObjectBinding var webImage = WebImage()
     var url: String
             
     var body: some View {

@@ -48,14 +48,15 @@ class PicsumViewModel: BindableObject {
 struct PicsumView : View {
     
     @ObjectBinding var viewModel = PicsumViewModel()
-    let width = Global.screenWidth
     
     var body: some View {
+        GeometryReader { geometry in
             List {
                 Section {
-                    ForEach(self.viewModel.photos) { photo in
-                            NetworkImage("https://picsum.photos/id/\(photo.id)/\(Int(self.width * 3))/\(Int((photo.height / photo.width) * self.width * 3))")
-                                .frame(width: self.width, height: (photo.height / photo.width) * self.width, alignment: .trailing)
+                        ForEach(self.viewModel.photos) { photo in
+                            URLImage(URL(string: "https://picsum.photos/id/\(photo.id)/\(Int(geometry.size.width * 3))/\(Int((photo.height / photo.width) * geometry.size.width * 3))")!)
+                                .resizable()
+                                .frame(width: geometry.size.width, height: (photo.height / photo.width) * geometry.size.width, alignment: .trailing)
                                 .overlay(HStack {
                                     Text("\(photo.author)").font(.caption).foregroundColor(.white).padding(4)
                                 }, alignment: .bottomLeading).background(Color.gray)
@@ -69,6 +70,7 @@ struct PicsumView : View {
                     self.viewModel.fetchMorePhotos()
                 }
             }
+        }
         .navigationBarTitle(Text("Photos"))
     }
 }

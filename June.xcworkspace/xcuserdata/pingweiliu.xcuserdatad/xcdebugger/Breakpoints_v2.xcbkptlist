@@ -3,4 +3,134 @@
    uuid = "98515AA1-997C-440D-B88B-16D15F5C2F07"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "42CA23DA-66AD-457C-A87A-DF60A80FB759"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../System/Volumes/Data/Users/pingweiliu/Work/June/June/ThumbnailsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70D21C12-A453-4025-8C0C-CA2F83989A62"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../System/Volumes/Data/Users/pingweiliu/Work/June/June/HTTP.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "get(with:session:queue:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "70D21C12-A453-4025-8C0C-CA2F83989A62 - 44b3eaaf7c676b24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Cache.Result&lt;__C.UIImage&gt;) -&gt; () in June.WebImage.get(with: Swift.String, session: __C.NSURLSession, queue: __C.OS_dispatch_queue) -&gt; ()"
+                  moduleName = "June"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///System/Volumes/Data/Users/pingweiliu/Work/June/June/HTTP.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "371">
+               </Location>
+               <Location
+                  uuid = "70D21C12-A453-4025-8C0C-CA2F83989A62 - 44b3eaaf7c676b24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Cache.Result&lt;__C.UIImage&gt;) -&gt; () in June.WebImage.get(with: Swift.String, session: __C.NSURLSession, queue: __C.OS_dispatch_queue) -&gt; ()"
+                  moduleName = "June"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///System/Volumes/Data/Users/pingweiliu/Work/June/June/HTTP.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "385">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3BE5860-E782-4DD6-AC94-E043B76FB50F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../System/Volumes/Data/Users/pingweiliu/Work/June/June/HTTP.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "finished(with:value:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D5F113BF-B996-42C2-ADFB-B69DA8B0CA79"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "June/NetworkImage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "D5F113BF-B996-42C2-ADFB-B69DA8B0CA79 - ab5fd154e8417664"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Cache.Result&lt;__C.UIImage&gt;) -&gt; () in closure #1 () -&gt; () in June.NetworkImage.body.getter : some"
+                  moduleName = "June"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pingweiliu/Work/June/June/NetworkImage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "340">
+               </Location>
+               <Location
+                  uuid = "D5F113BF-B996-42C2-ADFB-B69DA8B0CA79 - ab5fd154e8417664"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Cache.Result&lt;__C.UIImage&gt;) -&gt; () in closure #1 () -&gt; () in June.NetworkImage.body.getter : some"
+                  moduleName = "June"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pingweiliu/Work/June/June/NetworkImage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "365">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
